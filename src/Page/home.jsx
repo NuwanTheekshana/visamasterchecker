@@ -97,60 +97,54 @@ export default function Home() {
 
     return (
         <div>
-             <h3 className='text-danger mt-4'>Is your credit / debit card number in a hacker's database?</h3>
-            <div className="container d-flex justify-content-center align-items-center">
-                <div className="card mt-5 text-center border-primary w-50">
-                    <div className="card-body">
-                    <p className='text-dark'>You can easily find out now! All you need to do is enter its information here and we will scan thousands of hacker databases to see if any they have match yours.</p>
-                        <form onSubmit={handleSave}>
-                            <div className="form-group row mb-3">
-                                <label htmlFor="creditcardnumber" className="col-sm-5 col-form-label">Card Number</label>
-
-                                <div className="col-sm-6">
-                                    <input type="number" className="form-control" id="creditcardnumber" placeholder="Credit Card Number" onChange={handleCardNumberChange} maxLength={16} value={cardinputValue} />
-                                </div>
-
-                                    {cardType === "Visa" && (
-                                        <div className="col-sm-1">
-                                            <img src={`${process.env.PUBLIC_URL}/assets/img/visa.png`} alt="" className="img-fluid" />
-                                        </div>
-                                    )}
-                                    {cardType === "MasterCard" && (
-                                        <div className="col-sm-1">
-                                            <img src={`${process.env.PUBLIC_URL}/assets/img/mastercard.png`} alt="" className="img-fluid" />
-                                        </div>
-                                    )}
-                                    {cardType === "Unknown" && (
-                                        <div className="col-sm-1">
-                                            <i class="bi bi-exclamation-circle text-danger"></i>
-                                        </div>
-                                    )}
-                                
-                            </div>
-                            <div className="form-group row mb-3">
-                                <label htmlFor="expdate" className="col-sm-5 col-form-label">Expiration Date</label>
-                                <div className="col-sm-3">
-                                    <input type="number" className={`form-control ${monthcheckinputValue ? 'is-invalid' : ''}`} id="expdatemonth" placeholder="Month" ref={expDateMonth} onChange={handleMonthNumberChange} maxLength={2} value={monthinputValue} />
-                                </div>
-                                <div className="col-sm-3">
-                                    <input type="number" className="form-control" id="expdateyear" placeholder="Year" ref={expDateYear} onChange={handleYearNumberChange} maxLength={2} value={yearinputValue}/>
-                                </div>
-                            </div>
-                            <div className="form-group row mb-3">
-                                <label htmlFor="cvc" className="col-sm-5 col-form-label">CVC</label>
-                                <div className="col-sm-3">
-                                    <input type="number" className="form-control" id="cvc" placeholder="CVC" ref={cvc} onChange={handleCVCNumberChange} maxLength={3} value={cvcinputValue} />
-                                </div>
-                            </div>
-                            <div className="form-group row justify-content-center align-items-center">
-                                <div className="col-sm-10">
-                                    <button type="submit" className="btn btn-primary"> <i class="bi bi-upc-scan"></i> &nbsp; Scan Database</button>
-                                </div>
-                            </div>
-                        </form>
+    <h3 className='text-danger mt-4 text-center'>Is your credit / debit card number in a hacker's database?</h3>
+    <div className="container d-flex justify-content-center align-items-center">
+        <div className="card mt-5 text-center border-primary w-100 w-md-50">
+            <div className="card-body">
+                <p className='text-dark'>You can easily find out now! All you need to do is enter its information here and we will scan thousands of hacker databases to see if any they have match yours.</p>
+                <form onSubmit={handleSave}>
+                    <div className="form-group row mb-3">
+                        <label htmlFor="creditcardnumber" className="col-12 col-sm-5 col-form-label text-sm-end text-start">Card Number</label>
+                        <div className="col-12 col-sm-6">
+                            <input type="number" className="form-control" id="creditcardnumber" placeholder="Credit Card Number" onChange={handleCardNumberChange} maxLength={16} value={cardinputValue} />
+                        </div>
+                        <div className="col-12 col-sm-1 text-center mt-2 mt-sm-0">
+                            {cardType === "Visa" && (
+                                <img src={`${process.env.PUBLIC_URL}/assets/img/visa.png`} alt="Visa" className="img-fluid" />
+                            )}
+                            {cardType === "MasterCard" && (
+                                <img src={`${process.env.PUBLIC_URL}/assets/img/mastercard.png`} alt="MasterCard" className="img-fluid" />
+                            )}
+                            {cardType === "Unknown" && (
+                                <i className="bi bi-exclamation-circle text-danger"></i>
+                            )}
+                        </div>
                     </div>
-                </div>
+                    <div className="form-group row mb-3">
+                        <label htmlFor="expdate" className="col-12 col-sm-5 col-form-label text-sm-end text-start">Expiration Date</label>
+                        <div className="col-6 col-sm-3">
+                            <input type="number" className={`form-control ${monthcheckinputValue ? 'is-invalid' : ''}`} id="expdatemonth" placeholder="Month" ref={expDateMonth} onChange={handleMonthNumberChange} maxLength={2} value={monthinputValue} />
+                        </div>
+                        <div className="col-6 col-sm-3">
+                            <input type="number" className="form-control" id="expdateyear" placeholder="Year" ref={expDateYear} onChange={handleYearNumberChange} maxLength={2} value={yearinputValue}/>
+                        </div>
+                    </div>
+                    <div className="form-group row mb-3">
+                        <label htmlFor="cvc" className="col-12 col-sm-5 col-form-label text-sm-end text-start">CVC</label>
+                        <div className="col-12 col-sm-3">
+                            <input type="number" className="form-control" id="cvc" placeholder="CVC" ref={cvc} onChange={handleCVCNumberChange} maxLength={3} value={cvcinputValue} />
+                        </div>
+                    </div>
+                    <div className="form-group row justify-content-center align-items-center">
+                        <div className="col-12">
+                            <button type="submit" className="btn btn-primary"> <i className="bi bi-upc-scan"></i> &nbsp; Scan Database</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
+</div>
+
     )
 }
