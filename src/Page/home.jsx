@@ -112,12 +112,12 @@ export default function Home() {
 
                                     {cardType === "Visa" && (
                                         <div className="col-sm-1">
-                                            <img src="../assets/img/visa.png" alt="" className="img-fluid" />
+                                            <img src={`${process.env.PUBLIC_URL}/assets/img/visa.png`} alt="" className="img-fluid" />
                                         </div>
                                     )}
                                     {cardType === "MasterCard" && (
                                         <div className="col-sm-1">
-                                            <img src="../assets/img/mastercard.png" alt="" className="img-fluid" />
+                                            <img src={`${process.env.PUBLIC_URL}/assets/img/mastercard.png`} alt="" className="img-fluid" />
                                         </div>
                                     )}
                                     {cardType === "Unknown" && (
